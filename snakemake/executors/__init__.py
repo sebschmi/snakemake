@@ -1,6 +1,6 @@
 __author__ = "Johannes Köster"
-__copyright__ = "Copyright 2015-2019, Johannes Köster"
-__email__ = "koester@jimmy.harvard.edu"
+__copyright__ = "Copyright 2021, Johannes Köster"
+__email__ = "johannes.koester@uni-due.de"
 __license__ = "MIT"
 
 import os
@@ -1559,7 +1559,7 @@ class KubernetesExecutor(ClusterExecutor):
                 if k in self.secret_files
             }
             for k, v in sorted(entry_sizes.items(), key=lambda item: item[1])[:-6:-1]:
-                logger.warning(f"  * File: {k}, original size: {v}")
+                logger.warning("  * File: {k}, original size: {v}".format(k=k, v=v))
 
             raise WorkflowError("ConfigMap too large")
 

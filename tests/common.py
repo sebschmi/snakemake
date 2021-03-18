@@ -1,5 +1,5 @@
 __authors__ = ["Tobias Marschall", "Marcel Martin", "Johannes Köster"]
-__copyright__ = "Copyright 2015-2019, Johannes Köster"
+__copyright__ = "Copyright 2021, Johannes Köster"
 __email__ = "johannes.koester@uni-due.de"
 __license__ = "MIT"
 
@@ -195,7 +195,11 @@ def run(
                         content = target.read()
                     assert (
                         False
-                    ), f"wrong result produced for file '{resultfile}':\n------found------\n{content}\n-----expected-----\n{expected_content}\n-----------------"
+                    ), "wrong result produced for file '{resultfile}':\n------found------\n{content}\n-----expected-----\n{expected_content}\n-----------------".format(
+                        resultfile=resultfile,
+                        content=content,
+                        expected_content=expected_content,
+                    )
 
     if not cleanup:
         return tmpdir

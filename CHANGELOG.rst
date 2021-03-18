@@ -1,8 +1,55 @@
-Unreleased
-==========
-Fixed
------
-- f-strings in runtime code were replaced with `format` syntax as we still support python 3.5 (@mbhall88)
+[6.0.5] - 2021-03-11
+====================
+- Fix bug (introduced with 6.0) when handling of HTML directories in report (@johanneskoester).
+
+[6.0.4] - 2021-03-11
+====================
+- Various textual improvements in the tutorial (@dlaehnemann).
+
+[6.0.3] - 2021-03-08
+====================
+- No longer use a shortened hash for naming conda environments in .snakemake/conda (@johanneskoester).
+- Various little updates to the docs (@johanneskoester).
+
+[6.0.2] - 2021-03-03
+====================
+- Fix race condition in conda checking code (@johanneskoester).
+
+[6.0.1] - 2021-03-03
+====================
+- Restored Python 3.5 compatibility by removing f-strings (@mbhall88)
+- Fix rendering issue in the docs.
+- Add gitpod dev environment and gitpod environment for the tutorial.
+
+[6.0.0] - 2021-02-26
+====================
+- Introduced a new module system, see https://snakemake.readthedocs.io/en/stable/snakefiles/modularization.html#modules (@johanneskoester).
+- Introduced a rule inheritance mechanism, see https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#rule-inheritance (@johanneskoester).
+- Automatically containerize a conda-based pipeline with ``--containerize``, see https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#containerization-of-conda-based-workflows (@johanneskoester).
+- Use temporary files for long shell commands (@epruesse).
+- Various fixes in the documentation (@ctb, @SilasK, @EthanHolleman).
+- Fixed a bug in job grouping that led to non-deterministic behavior (@johanneskoester).
+
+
+[5.32.2] - 2021-02-11
+=====================
+Changed
+-------
+- Fixed infinite loading of results in Snakemake reports (@FelixMoelder)
+
+
+[5.32.1] - 2021-02-08
+=====================
+Changed
+-------
+- Improved warning on wildcard constraints (@jheuel)
+- Improved logging from the new scheduler implementation (@johanneskoester)
+- Restored Python 3.5 compatibility by removing f-strings (@mbhall88)
+- Snakemake now automatically adds a global wildcard constraint for {scatteritem}, when scatter/gather support is used.
+- The zip variant of Snakemake reports is now compressed (@FelixMoelder).
+- Improved docs (@ctb).
+- Make output file removal in cluster mode more robust (@sebschmi).
+
 
 [5.32.0] - 2021-01-15
 =====================
