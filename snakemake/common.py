@@ -67,6 +67,16 @@ def is_local_file(path_or_uri):
     return parse_uri(path_or_uri).scheme == "file"
 
 
+def smart_join(base, path, abspath=False):
+    if is_local_file(base):
+        full = os.path.join(base, path)
+        if abspath:
+            return os.path.abspath(full)
+        return full
+    else:
+        return "{}/{}".format(base, path)
+
+
 def num_if_possible(s):
     """Convert string to number if possible, otherwise return string."""
     try:
@@ -184,3 +194,21 @@ def group_into_chunks(n, iterable):
         if not chunk:
             return
         yield chunk
+
+
+class Rules:
+    """ A namespace for rules so that they can be accessed via dot notation. """
+
+    pass
+
+
+class Scatter:
+    """ A namespace for scatter to allow items to be accessed via dot notation."""
+
+    pass
+
+
+class Gather:
+    """ A namespace for gather to allow items to be accessed via dot notation."""
+
+    pass
